@@ -1,4 +1,4 @@
-debug = require('debug') 'vatapi:ApiBaseHTTP'
+debug = require('debug') 'mailgun:ApiBaseHTTP'
 {ApiBase} = require './ApiBase'
 querystring = require 'querystring'
 slumber = require 'slumber'
@@ -9,8 +9,8 @@ class module.exports.ApiBaseHTTP extends ApiBase
     super
     @options.base_url ?= ''
 
-    unless @options.key
-      throw "`key` is mandatory"
+    unless @options.auth
+      throw "`auth` is mandatory"
 
     @options.slumber ?= {}
     @options.slumber.append_slash ?= false
@@ -22,12 +22,12 @@ class module.exports.ApiBaseHTTP extends ApiBase
 
   init: =>
     super
-    api = slumber.API 'https://vatapi.com', @options.slumber
+    api = slumber.API 'https://api.mailgun.net/', @options.slumber
     @slumber = api(@options.base_url)
 
   prepare_opts: (opts) =>
     opts.__query ?= {}
-    opts.headers = { 'Apikey': @options.key }
+    opts.headers = { 'content-type': 'application/x-www-form-urlencoded' }
     return opts
 
   fn_wrapper: (fn) =>
@@ -35,7 +35,7 @@ class module.exports.ApiBaseHTTP extends ApiBase
       arity = fn.length
       switch arity
         when 1 then fn ret
-        when 2 then fn err, ret || JSON.parse(response.body).message
+        when 2 then fn err, (if !! err then response.statusMessage else JSON.parse response.body)
         when 3 then fn err, response, ret
 
   get: (path, query={}, fn=null) =>

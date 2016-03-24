@@ -1,4 +1,4 @@
-debug = require('debug') 'vatapi:BaseModel'
+debug = require('debug') 'mailgun:BaseModel'
 
 class module.exports
   constructor: (@client) ->
@@ -8,7 +8,7 @@ class module.exports
     require("./Models/#{model}") @client
 
   _init: =>
-    @debug =   require('debug') "vatapi:Models:#{@constructor.name}"
+    @debug =   require('debug') "mailgun:Models:#{@constructor.name}"
 
     @get =     @client.get
     @post =    @client.post

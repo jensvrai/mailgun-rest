@@ -1,23 +1,23 @@
 {
-  "name": "vatapi",
+  "name": "mailgun",
   "version": "0.2.0",
-  "description": "vatapi.com API Nodejs library.",
+  "description": "mailgun.com API Nodejs library.",
   "main": "lib/index.js",
   "directories": {
     "example": "examples",
     "test": "test"
   },
   "scripts": {
-    "test": "DEBUG=slumber:api,vatapi:* ./node_modules/.bin/mocha tests",
+    "test": "DEBUG=slumber:api,mailgun:* ./node_modules/.bin/mocha tests",
     "build": "./node_modules/.bin/cake build"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Sewdn/node-vatapi"
+    "url": "https://github.com/jensvrai/node-mailgun"
   },
   "dependencies": {
     "debug": "*",
-    "slumber": "git://github.com/Sewdn/node-slumber.git#master"
+    "slumber": "git://github.com/Sewdn/node-slumber.git#develop"
   },
   "devDependencies": {
     "coffee-script": ">=1.9.1",
@@ -28,7 +28,7 @@
     "sinon-chai": "~2.6.0"
   },
   "keywords": [
-    "vatapi",
+    "mailgun",
     "vat",
     "btw",
     "gst",
