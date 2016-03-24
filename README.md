@@ -1,21 +1,20 @@
-# node-vatapi
+# node-maigun
 
-[![NPM Badge](https://nodei.co/npm/vatapi.png?downloads=true&stars=true)](https://nodei.co/npm/vatapi/)
 --
 
-[VatAPI](https://vatapi.com/) Nodejs library.
-It wraps the HTTP api library described [here](https://vatapi.com/console/#!/api/).
+[Mailgun](https://mailgun.com/) Nodejs library.
+It wraps the HTTP api library described [here](https://mailgun.com/console/#!/api/).
 
 Based on the NodeJS HTTP API wrapper of gitlab described [here](https://github.com/node-gitlab/node-gitlab)
 
-Maintained by [Pieter Soudan](https://github.com/Sewdn).
+Maintained by [Jens Verbeken](https://github.com/jensvrai).
 
 
 ## Install
 
 ```bash
 # Install from npm
-npm install vatapi
+npm install mailgun
 ```
 
 ## Usage
@@ -23,23 +22,27 @@ npm install vatapi
 ### Coffee-Script
 ```coffee
 # Connection
-vatapi = (require 'vatapi')
+mailgun = (require 'mailgun')
   key:   'your_key'
 
+domain = 'your_domain'
+
 # Check a VAT
-vatapi.vat.number_check (err, result) ->
+mailgun.stats.retrieveall (err, result) ->
   console.log result
 ```
 
 ### Javascript
 ```javascript
 // Connection
-var vatapi = require('vatapi')({
+var mailgun = require('mailgun')({
   key:   'your_key'
 });
 
+var domain = 'your_domain'
+
 // check a vat
-vatapi.vat.number_check(function(err, result) {
+mailgun.vat.number_check(function(err, result) {
   console.log(result);
 });
 
@@ -61,4 +64,3 @@ MIT
 
 
 ## Changelog
-
