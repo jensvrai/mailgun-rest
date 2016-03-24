@@ -27,8 +27,8 @@ mailgun = (require 'mailgun')
 
 domain = 'your_domain'
 
-# Check a VAT
-mailgun.stats.retrieveall (err, result) ->
+# Check your stats
+mailgun.stats.retrieveAll domain, (err, result) ->
   console.log result
 ```
 
@@ -41,8 +41,8 @@ var mailgun = require('mailgun')({
 
 var domain = 'your_domain'
 
-// check a vat
-mailgun.vat.number_check(function(err, result) {
+// check your stats
+mailgun.stats.retrieveAll(domain, function(err, result) {
   console.log(result);
 });
 
