@@ -1,4 +1,4 @@
-# node-maigun
+# mailgun-rest
 
 --
 
@@ -23,12 +23,15 @@ npm install mailgun
 ```coffee
 # Connection
 mailgun = (require 'mailgun')
-  key:   'your_key'
+  auth: ["Xapi","key-b52b1e2479a5d90b58f9802706c8eb01"]
 
 domain = 'your_domain'
 
+data =
+  "event": "delivered"
+
 # Check your stats
-mailgun.stats.retrieveAll domain, (err, result) ->
+mailgun.stats.retrieveAll domain, data, (err, result) ->
   console.log result
 ```
 
@@ -36,13 +39,17 @@ mailgun.stats.retrieveAll domain, (err, result) ->
 ```javascript
 // Connection
 var mailgun = require('mailgun')({
-  key:   'your_key'
+  auth: ["api", "your_key"]
 });
 
 var domain = 'your_domain'
 
+var data = {
+  "event": "delivered"
+};
+
 // check your stats
-mailgun.stats.retrieveAll(domain, function(err, result) {
+mailgun.stats.retrieve(domain, data, function(err, result) {
   console.log(result);
 });
 
