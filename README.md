@@ -3,7 +3,7 @@
 --
 
 [Mailgun](https://mailgun.com/) Nodejs library.
-It wraps the HTTP api library described [here](https://mailgun.com/console/#!/api/).
+It wraps the HTTP api library described [here](https://documentation.mailgun.com/api_reference.html).
 
 Based on the NodeJS HTTP API wrapper of gitlab described [here](https://github.com/node-gitlab/node-gitlab)
 
@@ -23,7 +23,7 @@ npm install mailgun
 ```coffee
 # Connection
 mailgun = (require 'mailgun')
-  auth: ["Xapi","key-b52b1e2479a5d90b58f9802706c8eb01"]
+  auth: ["api","your_key"]
 
 domain = 'your_domain'
 

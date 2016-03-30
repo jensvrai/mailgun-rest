@@ -29,13 +29,10 @@
   },
   "keywords": [
     "mailgun",
-    "vat",
-    "btw",
-    "gst",
     "api",
     "http"
   ],
-  "author": "Pieter Soudan <pieter.soudan@redandivory.be>",
+  "author": "Jens Verbeken <jens.verbeken@redandivory.be>",
   "contributors": [
   ],
   "license": "MIT",
