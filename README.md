@@ -22,7 +22,7 @@ npm install mailgun
 ### Coffee-Script
 ```coffee
 # Connection
-mailgun = (require 'mailgun')
+mailgun = (require 'mailgun-rest')
   auth: ["api","your_key"]
 
 domain = 'your_domain'
@@ -38,7 +38,7 @@ mailgun.stats.retrieveAll domain, data, (err, result) ->
 ### Javascript
 ```javascript
 // Connection
-var mailgun = require('mailgun')({
+var mailgun = require('mailgun-rest')({
   auth: ["api", "your_key"]
 });
 
