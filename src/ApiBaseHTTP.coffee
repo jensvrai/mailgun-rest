@@ -32,14 +32,11 @@ class module.exports.ApiBaseHTTP extends ApiBase
 
   fn_wrapper: (fn) =>
     return (err, response, ret) =>
-      statusMessage = if response then response.statusMessage else null
-      switch statusMessage
-        when 'OK'
-          return fn(err, ret)
-        else
-          return fn(if response then response.body else 'missing response')
-          break
-      return
+      arity = fn.length
+      switch arity
+        when 1 then fn ret
+        when 2 then fn err, (if !! response then response.body else 'no response')
+        when 3 then fn err, response, ret
 
   get: (path, query={}, fn=null) =>
     if 'function' is typeof query
