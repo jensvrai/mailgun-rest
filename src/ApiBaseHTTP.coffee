@@ -37,7 +37,7 @@ class module.exports.ApiBaseHTTP extends ApiBase
         when 'OK'
           return fn(err, ret)
         else
-          return fn(JSON.parse(response.body))
+          return fn(if response then response.body else 'missing response')
           break
       return
 
