@@ -2,9 +2,12 @@ BaseModel = require '../BaseModel'
 
 class Bounces extends BaseModel
 
-  retrieveAll: (domain, body, fn = null) =>
-    @debug "Bounces::retrieveAll(#{domain},#{body})"
-    @get domain + "/bounces", body, (err, data) -> fn err, data if fn
+  retrieveAll: (domain, limit, body, fn = null) =>
+    if typeof limit == 'function'
+      fn = limit
+      limit = 100
+    @debug "Bounces::retrieveAll(#{domain},#{body},#{limit})"
+    @get domain + "/bounces?limit=" + limit, body, (err, data) -> fn err, data if fn
 
   retrieve: (domain, address, body, fn = null) =>
     @debug "Bounces::retrieve(#{domain},#{address},#{body})"
