@@ -2,9 +2,12 @@ BaseModel = require '../BaseModel'
 
 class Complaints extends BaseModel
 
-  retrieveAll: (domain, body, fn = null) =>
-    @debug "Complaints::retrieveAll(#{domain},#{body})"
-    @get domain + "/complaints", body, (err, data) -> fn err, data if fn
+  retrieveAll: (domain, limit, body, fn = null) =>
+    if typeof limit == 'function'
+      fn = limit
+      limit = 100
+    @debug "Complaints::retrieveAll(#{domain},#{body},#{limit})"
+    @get domain + "/complaints?limit=" + limit, body, (err, data) -> fn err, data if fn
 
   retrieve: (domain, address, body, fn = null) =>
     @debug "Complaints::retrieve(#{domain},#{address},#{body})"
