@@ -19,10 +19,10 @@ class Complaints extends BaseModel
 
   remove: (domain, address, fn = null) =>
     @debug "Complaints::remove(#{domain},#{address})"
-    @delete domain + "/complaints/" + address, body, (err, data) -> fn err, data if fn
+    @delete domain + "/complaints/" + address, (err, data) -> fn err, data if fn
 
   removeAll: (domain, fn = null) =>
     @debug "Complaints::remove(#{domain})"
-    @delete domain + "/complaints", body, (err, data) -> fn err, data if fn
+    @delete domain + "/complaints", (err, data) -> fn err, data if fn
 
 module.exports = (client) -> new Complaints client

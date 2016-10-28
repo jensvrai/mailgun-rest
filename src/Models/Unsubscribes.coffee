@@ -19,10 +19,10 @@ class Unsubscribes extends BaseModel
 
   remove: (domain, address, fn = null) =>
     @debug "Unsubscribes::remove(#{domain},#{address})"
-    @delete domain + "/unsubscribes/" + address, body, (err, data) -> fn err, data if fn
+    @delete domain + "/unsubscribes/" + address, (err, data) -> fn err, data if fn
 
   removeAll: (domain, fn = null) =>
     @debug "Unsubscribes::remove(#{domain})"
-    @delete domain + "/unsubscribes", body, (err, data) -> fn err, data if fn
+    @delete domain + "/unsubscribes", (err, data) -> fn err, data if fn
 
 module.exports = (client) -> new Unsubscribes client

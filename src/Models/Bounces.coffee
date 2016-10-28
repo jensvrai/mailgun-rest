@@ -19,10 +19,10 @@ class Bounces extends BaseModel
 
   remove: (domain, address, fn = null) =>
     @debug "Bounces::remove(#{domain},#{address})"
-    @delete domain + "/bounces/" + address, body, (err, data) -> fn err, data if fn
+    @delete domain + "/bounces/" + address, (err, data) -> fn err, data if fn
 
   removeAll: (domain, fn = null) =>
     @debug "Bounces::remove(#{domain})"
-    @delete domain + "/bounces", body, (err, data) -> fn err, data if fn
+    @delete domain + "/bounces", (err, data) -> fn err, data if fn
 
 module.exports = (client) -> new Bounces client
