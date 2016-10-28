@@ -1,6 +1,6 @@
 {
   "name": "mailgun-rest",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "mailgun.com API Nodejs library.",
   "main": "lib/index.js",
   "directories": {
